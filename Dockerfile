@@ -4,6 +4,8 @@ MAINTAINER Tomohisa Kusano <siomiz@gmail.com>
 
 ADD https://github.com/K-S-V/Scripts/releases/download/v2.4/rtmpdump-2.4.zip /tmp/
 
+COPY rtmpsrv.diff /tmp/
+
 RUN apt-get update \
 	&& apt-get install -y \
 	build-essential \
@@ -23,6 +25,7 @@ RUN git clone git://git.ffmpeg.org/rtmpdump
 WORKDIR /usr/local/src/rtmpdump
 
 RUN patch -p0 < /tmp/Patch.diff
+RUN patch -p1 < /tmp/rtmpsrv.diff
 
 RUN make && make install
 
