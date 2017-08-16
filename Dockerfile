@@ -1,4 +1,4 @@
-FROM siomiz/chrome:randr
+FROM siomiz/chrome
 
 MAINTAINER Tomohisa Kusano <siomiz@gmail.com>
 
